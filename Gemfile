@@ -1,10 +1,28 @@
 source 'https://rubygems.org'
 
-gem 'sinatra'
-gem 'mongoid', github: 'mongoid/mongoid'
-gem 'bson_ext'
+group :web do
+  gem 'sinatra'
+  gem 'bootstrap-sass', require: false
+  gem 'flat-ui-rails', require: false
+end
+
+group :mail do
+  gem 'actionmailer', '4.0.0.beta1', require: 'action_mailer'
+  gem 'roadie', github: 'Mange/roadie'
+end
+
+group :development, :mail do
+  gem 'dotenv'
+end
 
 group :development do
-  gem 'dotenv'
   gem 'guard-pow'
 end
+
+gem 'mongoid', github: 'mongoid/mongoid'
+gem 'bson_ext'
+gem 'activesupport', '4.0.0.beta1', require: false
+gem 'slim'
+gem 'sass'
+gem 'sprockets'
+gem 'twitter-text'

@@ -1,0 +1,55 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 20px;
+  color: #333333;
+}
+
+a {
+  color: #1abc9c;
+  &:hover {
+    color: #2ecc71;
+  }
+}
+
+.right {
+  text-align: right;
+}
+.center {
+  text-align: center;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 650px;
+}
+
+.conversations {
+  th {
+    width: 52px;
+  }
+  .user {
+    font-weight: bold;
+  }
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 20px;
+  th, td {
+    padding: 8px;
+    line-height: 20px;
+    text-align: left;
+    vertical-align: top;
+    border-top: 1px solid #dddddd;
+  }
+}
+
+.table-striped {
+  tbody {
+    > tr:nth-child(odd) {
+      > th, > td {
+        background-color: #f9f9f9;
+      }
+    }
+  }
+}

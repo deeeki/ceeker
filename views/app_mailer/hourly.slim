@@ -1,0 +1,18 @@
+html
+  head
+    link rel='stylesheet' type='text/css' href='/assets/mail.css'
+  body
+    .container
+      h2 Conversations at #{@from.getlocal.strftime('%H on %b %d')}
+      - @conversations.each do |c|
+        .right= c.created_at.getlocal.strftime('%Y/%m/%d %H:%M')
+        table.table.table-striped.conversations
+          tbody
+            - c.tweets.each do |t|
+              tr
+                th
+                  img src=t.profile_image_url
+                td
+                  .user= t.screen_name
+                  == auto_link(CGI.escapeHTML(t.text))
+      footer.center provided by Ceeker

@@ -1,0 +1,19 @@
+defaults: &defaults
+  sessions:
+    default:
+      hosts:
+        - <%= ENV['DB_HOST'] %>
+      database: <%= ENV['DB_NAME'] %>
+      username: <%= ENV['DB_USER'] %>
+      password: <%= ENV['DB_PASS'] %>
+      options:
+  options:
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

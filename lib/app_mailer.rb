@@ -1,7 +1,7 @@
 require 'cgi'
 
 class AppMailer < ActionMailer::Base
-  default to: ENV['EMAIL']
+  default from: ENV['MAIL_FROM'], to: ENV['MAIL_TO']
   helper Twitter::Autolink
 
   def url_options; end

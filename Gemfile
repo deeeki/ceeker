@@ -7,11 +7,11 @@ group :web do
 end
 
 group :mail do
-  gem 'actionmailer', '4.0.0.beta1', require: 'action_mailer'
+  gem 'actionmailer', '4.0.0.rc1', require: 'action_mailer'
   gem 'roadie', github: 'Mange/roadie'
 end
 
-group :development, :mail do
+group :development, :web, :mail do
   gem 'dotenv'
 end
 
@@ -21,7 +21,7 @@ end
 
 gem 'mongoid', github: 'mongoid/mongoid'
 gem 'bson_ext'
-gem 'activesupport', '4.0.0.beta1', require: false
+gem 'activesupport', '4.0.0.rc1', require: false
 gem 'slim'
 gem 'sass'
 gem 'sprockets'

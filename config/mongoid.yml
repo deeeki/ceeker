@@ -8,6 +8,7 @@ defaults: &defaults
       password: <%= ENV['DB_PASS'] %>
       options:
   options:
+    raise_not_found_error: false
 
 development:
   <<: *defaults

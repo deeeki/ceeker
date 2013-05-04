@@ -11,7 +11,18 @@ group :mail do
   gem 'roadie', github: 'Mange/roadie'
 end
 
-group :development, :web, :mail do
+group :process do
+  gem 'tweetstream'
+end
+
+group :web, :mail do
+  gem 'slim'
+  gem 'sass'
+  gem 'sprockets'
+  gem 'twitter-text'
+end
+
+group :mail, :process do
   gem 'dotenv'
 end
 
@@ -22,7 +33,3 @@ end
 gem 'mongoid', github: 'mongoid/mongoid'
 gem 'bson_ext'
 gem 'activesupport', '4.0.0.rc1', require: false
-gem 'slim'
-gem 'sass'
-gem 'sprockets'
-gem 'twitter-text'

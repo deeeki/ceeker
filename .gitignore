@@ -1,3 +1,4 @@
 .bundle
 .env
+config/accounts.yml
 tmp/

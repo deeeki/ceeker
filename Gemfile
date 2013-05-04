@@ -28,6 +28,7 @@ end
 
 group :development do
   gem 'guard-pow'
+  gem 'capistrano'
 end
 
 gem 'mongoid', github: 'mongoid/mongoid'

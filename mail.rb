@@ -16,6 +16,7 @@ require 'action_dispatch/http/mime_type'
 ActionView::Template::Types.delegate_to Mime
 ActionMailer::Base.append_view_path(File.expand_path('../views', __FILE__))
 
+require 'ostruct'
 Roadie.class_eval do
   def self.app
     @app ||= OpenStruct.new(

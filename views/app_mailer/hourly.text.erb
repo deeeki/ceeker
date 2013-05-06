@@ -1,11 +1,12 @@
 Conversations at <%= @to_time.getlocal.strftime('%H on %b %d') %>
 
 <% @conversations.each do |c| %>
-[<%= c.created_at.getlocal.strftime('%Y/%m/%d %H:%M') %>]
+[<%= c.started_at.getlocal.strftime('%Y/%m/%d %H:%M') %> - <%= c.ended_at.getlocal.strftime('%H:%M') %>]
   <% c.tweets.each do |t| %>
 <%= t.screen_name %>
   <%= CGI.escapeHTML(t.text) %>
   <% end %>
+<%= c.root_permalink %>
 
 <% end %>
 

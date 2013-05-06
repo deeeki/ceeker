@@ -5,7 +5,10 @@ html
     .container
       h2 Conversations at #{@to_time.getlocal.strftime('%H on %b %d')}
       - @conversations.each do |c|
-        .right= c.created_at.getlocal.strftime('%Y/%m/%d %H:%M')
+        .right
+          a href=c.root_permalink
+            = c.started_at.getlocal.strftime('%Y/%m/%d %H:%M -')
+            = c.ended_at.getlocal.strftime('%H:%M')
         table.table.table-striped.conversations
           tbody
             - c.tweets.each do |t|

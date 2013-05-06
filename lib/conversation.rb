@@ -1,5 +1,6 @@
 class Conversation
   include Mongoid::Document
+  include Mongoid::Timestamps::Created
   embeds_many :tweets, class_name: 'Conversation::Tweet'
 
   scope :lang, ->(lang = 'ja'){ where(lang: lang) }
@@ -19,7 +20,6 @@ class Conversation
         average_length: (length / tweets.size).to_i,
         started_at: tweets.first.created_at,
         ended_at: tweets.last.created_at,
-        created_at: Time.now,
       })
     end
   end

@@ -6,12 +6,11 @@ class AppMailer < ActionMailer::Base
 
   def url_options; end
 
-  def hourly from
-    @from = from
-    @to = @from + 1.hour
-    @conversations = Conversation.where(:created_at.gte => @from, :created_at.lt => @to)
+  def hourly to_time
+    @to_time = to_time
+    @conversations = Conversation.only_1hour(@to_time).lang(:ja).by_priority
     mail(
-      subject: "Conversations at #{@from.getlocal.strftime('%H on %b %d')}",
+      subject: "Conversations at #{@to_time.getlocal.strftime('%H on %b %d')}",
     )
   end
 

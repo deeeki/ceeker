@@ -3,7 +3,7 @@ html
     link rel='stylesheet' type='text/css' href='/assets/mail.css'
   body
     .container
-      h2 Conversations at #{@from.getlocal.strftime('%H on %b %d')}
+      h2 Conversations at #{@to_time.getlocal.strftime('%H on %b %d')}
       - @conversations.each do |c|
         .right= c.created_at.getlocal.strftime('%Y/%m/%d %H:%M')
         table.table.table-striped.conversations

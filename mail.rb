@@ -1,8 +1,6 @@
 require 'bundler/setup'
 Bundler.require(:default, :mail)
 
-@from = eval(ARGV.first || '1.hour.ago') rescue 1.hour.ago
-
 Dotenv.load
 
 Mongoid.load!('config/mongoid.yml', ENV['RACK_ENV'] || :development)
@@ -40,4 +38,5 @@ end
 require 'roadie/action_mailer_extensions'
 ActionMailer::Base.__send__(:include, Roadie::ActionMailerExtensions)
 
-AppMailer.hourly(@from).deliver
+to_time = eval(ARGV.first || 'Time.now') rescue Time.now
+AppMailer.hourly(to_time).deliver

@@ -8,13 +8,12 @@ class Conversation
 
   class << self
     def create_with_tweets *tweets
-      root_tweet_id = tweets.first.in_reply_to_status_id || tweets.first.id
       length = tweets.map(&:text).join.length
       create({
         tweet_ids: tweets.map(&:id),
         tweets: tweets,
         tweet_count: tweets.size,
-        root_tweet_id: root_tweet_id,
+        root_permalink: tweets.first.replied_permalink || tweets.first.permalink,
         lang: tweets.first.lang,
         total_length: length,
         average_length: (length / tweets.size).to_i,

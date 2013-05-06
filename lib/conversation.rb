@@ -18,8 +18,8 @@ class Conversation
         lang: tweets.first.lang,
         total_length: length,
         average_length: (length / tweets.size).to_i,
-        start_at: tweets.first.created_at,
-        end_at: tweets.last.created_at,
+        started_at: tweets.first.created_at,
+        ended_at: tweets.last.created_at,
         created_at: Time.now,
       })
     end
@@ -34,7 +34,7 @@ class Conversation
       tweet_count: merged_tweets.size,
       total_length: length,
       average_length: (length / merged_tweets.size).to_i,
-      end_at: tweet.created_at,
+      ended_at: tweet.created_at,
     })
   end
 end

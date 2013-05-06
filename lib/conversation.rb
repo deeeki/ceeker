@@ -4,7 +4,7 @@ class Conversation
   embeds_many :tweets, class_name: 'Conversation::Tweet'
 
   scope :lang, ->(lang = 'ja'){ where(lang: lang) }
-  scope :only_1hour, ->(to = Time.now){ where(:created_at.gte => to - 1.hour, :created_at.lt => to) }
+  scope :only_1hour, ->(to = Time.now){ where(:ended_at.gte => to - 1.hour, :ended_at.lt => to) }
   scope :by_priority, ->{ order_by(average_length: :desc) }
 
   class << self

@@ -14,7 +14,7 @@ html
             - c.tweets.each do |t|
               tr
                 th
-                  img src=t.profile_image_url
+                  img width='48' height='48' src=t.profile_image_url
                 td
                   .user= t.screen_name
                   == auto_link(CGI.escapeHTML(t.text))

@@ -43,9 +43,6 @@ GEM
     atomic (1.1.8)
     bootstrap-sass (2.3.1.0)
       sass (~> 3.2)
-    bson (1.8.5)
-    bson_ext (1.8.5)
-      bson (~> 1.8.5)
     builder (3.1.4)
     capistrano (2.15.4)
       highline
@@ -177,7 +174,6 @@ DEPENDENCIES
   actionmailer (= 4.0.0.rc1)
   activesupport (= 4.0.0.rc1)
   bootstrap-sass
-  bson_ext
   capistrano
   dotenv
   flat-ui-rails

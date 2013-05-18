@@ -32,5 +32,4 @@ group :development do
 end
 
 gem 'mongoid', github: 'mongoid/mongoid'
-gem 'bson_ext'
 gem 'activesupport', '4.0.0.rc1', require: false

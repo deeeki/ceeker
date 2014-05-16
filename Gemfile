@@ -1,35 +1,31 @@
 source 'https://rubygems.org'
 
-group :web do
-  gem 'sinatra'
-  gem 'bootstrap-sass', require: false
-  gem 'flat-ui-rails', require: false
-end
+gem 'mongoid', github: 'mongoid/mongoid'
+gem 'activesupport', require: false
+gem 'dotenv'
 
-group :mail do
-  gem 'actionmailer', '4.0.0.rc1', require: 'action_mailer'
-  gem 'roadie', github: 'Mange/roadie'
-end
-
-group :process do
+group :worker do
   gem 'tweetstream'
 end
 
-group :web, :mail do
+group :mail do
+  gem 'actionmailer', require: 'action_mailer'
+  gem 'roadie'
+end
+
+group :mail, :web do
   gem 'slim'
   gem 'sass'
   gem 'sprockets'
   gem 'twitter-text'
 end
 
-group :mail, :process do
-  gem 'dotenv'
+group :web do
+  gem 'sinatra'
+  gem 'bootstrap-sass', require: false
+  gem 'flat-ui-rails', require: false
 end
 
 group :development do
   gem 'guard-pow'
-  gem 'capistrano'
 end
-
-gem 'mongoid', github: 'mongoid/mongoid'
-gem 'activesupport', '4.0.0.rc1', require: false

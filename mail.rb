@@ -11,6 +11,14 @@ ActiveSupport::Dependencies.autoload_paths << File.expand_path('../lib', __FILE_
 Sprockets.append_path(File.expand_path('../assets/stylesheets', __FILE__))
 
 ActionMailer::Base.append_view_path(File.expand_path('../views', __FILE__))
+ActionMailer::Base.smtp_settings = {
+  :address        => ENV['MAILGUN_SMTP_SERVER'],
+  :port           => ENV['MAILGUN_SMTP_PORT'],
+  :domain         => 'heroku.com',
+  :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+  :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+  :authentication => :plain,
+}
 
 require 'action_dispatch/http/mime_type'
 ActionView::Template::Types.delegate_to(Mime) # neccesary to detect appropriate Content-Type

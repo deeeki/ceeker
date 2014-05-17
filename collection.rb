@@ -1,5 +1,5 @@
 require 'bundler/setup'
-Bundler.require(:default, :process)
+Bundler.require(:default, :worker)
 
 Dotenv.load
 
@@ -18,32 +18,29 @@ ActiveSupport::Dependencies.autoload_paths << File.expand_path('../lib', __FILE_
 
 @user_ids = YAML.load_file(File.expand_path('../config/accounts.yml', __FILE__))
 
-EM.run do
-  @client = TweetStream::Client.new
+def save(status)
+  EM.defer do
+    tweet = Tweet.create_from_status(status)
 
-  def save(status)
-    EM.defer do
-      tweet = Tweet.create_from_status(status)
+    next unless status.in_reply_to_status_id
+    next unless src_tweet = Tweet.find_by(id: status.in_reply_to_status_id)
 
-      next unless status.in_reply_to_status_id
-      next unless src_tweet = Tweet.find_by(id: status.in_reply_to_status_id)
-
-      if conversation = Conversation.find_by(tweet_ids: src_tweet.id)
-        conversation.add(tweet)
-      else
-        Conversation.create_with_tweets(src_tweet, tweet)
-      end
+    if conversation = Conversation.find_by(tweet_ids: src_tweet.id)
+      conversation.add(tweet)
+    else
+      Conversation.create_with_tweets(src_tweet, tweet)
     end
-  rescue => e
-    puts e
   end
+rescue => e
+  puts e
+end
 
-  @client.follow(@user_ids) do |status|
-    next unless status.text
-    next if status.retweeted
-    next if status.text =~ /^RT /
-    next if status.user.protected
+@client = TweetStream::Client.new
+@client.follow(@user_ids) do |status|
+  next unless status.text
+  next if status.retweeted?
+  next if status.text =~ /^RT /
+  next if status.user.protected?
 
-    save(status)
-  end
+  save(status)
 end

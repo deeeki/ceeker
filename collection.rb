@@ -16,8 +16,6 @@ end
 require 'active_support/dependencies'
 ActiveSupport::Dependencies.autoload_paths << File.expand_path('../lib', __FILE__)
 
-@user_ids = YAML.load_file(File.expand_path('../config/accounts.yml', __FILE__))
-
 def save(status)
   EM.defer do
     tweet = Tweet.create_from_status(status)
@@ -36,7 +34,7 @@ rescue => e
 end
 
 @client = TweetStream::Client.new
-@client.follow(@user_ids) do |status|
+@client.follow(ENV['USER_IDS']) do |status|
   next unless status.text
   next if status.retweeted?
   next if status.text =~ /^RT /

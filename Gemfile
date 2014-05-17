@@ -30,4 +30,5 @@ end
 
 group :development do
   gem 'guard-pow'
+  gem 'letter_opener'
 end

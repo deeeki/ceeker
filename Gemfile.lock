@@ -85,6 +85,10 @@ GEM
     http_parser.rb (0.6.0)
     i18n (0.6.9)
     json (1.8.1)
+    launchy (2.4.2)
+      addressable (~> 2.3)
+    letter_opener (1.2.0)
+      launchy (~> 2.2)
     listen (2.7.5)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
@@ -186,6 +190,7 @@ DEPENDENCIES
   dotenv
   flat-ui-rails
   guard-pow
+  letter_opener
   mongoid!
   roadie
   sass

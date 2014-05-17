@@ -10,9 +10,10 @@ ActiveSupport::Dependencies.autoload_paths << File.expand_path('../lib', __FILE_
 
 Sprockets.append_path(File.expand_path('../assets/stylesheets', __FILE__))
 
-require 'action_dispatch/http/mime_type'
-ActionView::Template::Types.delegate_to Mime
 ActionMailer::Base.append_view_path(File.expand_path('../views', __FILE__))
+
+require 'action_dispatch/http/mime_type'
+ActionView::Template::Types.delegate_to(Mime) # neccesary to detect appropriate Content-Type
 
 require 'ostruct'
 Roadie.class_eval do

@@ -23,6 +23,8 @@ ActionMailer::Base.smtp_settings = {
 require 'action_dispatch/http/mime_type'
 ActionView::Template::Types.delegate_to(Mime) # neccesary to detect appropriate Content-Type
 
+Temple::Templates::Rails(Slim::Engine, register_as: :slim)
+
 require 'ostruct'
 Roadie.class_eval do
   def self.app

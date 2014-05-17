@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.1.2'
+
 gem 'mongoid', github: 'mongoid/mongoid'
 gem 'activesupport', require: false
 gem 'dotenv'

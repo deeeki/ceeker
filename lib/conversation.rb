@@ -1,5 +1,6 @@
 class Conversation
   include Mongoid::Document
+  include Mongoid::Attributes::Dynamic
   include Mongoid::Timestamps::Created
   embeds_many :tweets, class_name: 'Conversation::Tweet'
 

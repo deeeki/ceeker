@@ -1,6 +1,7 @@
 class Tweet
   PERMALINK_FORMAT = 'https://twitter.com/%s/status/%s'
   include Mongoid::Document
+  include Mongoid::Attributes::Dynamic
 
   class << self
     def create_from_status status
@@ -8,7 +9,7 @@ class Tweet
         id: status.id,
         screen_name: status.user.screen_name,
         name: status.user.name,
-        profile_image_url: status.user.profile_image_url,
+        profile_image_url: status.user.profile_image_url.to_s,
         text: status.text,
         in_reply_to_status_id: status.in_reply_to_status_id,
         in_reply_to_screen_name: status.in_reply_to_screen_name,

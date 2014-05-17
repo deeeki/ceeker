@@ -14,6 +14,14 @@ class AppMailer < ActionMailer::Base
     )
   end
 
+  def day date
+    @date = date
+    @conversations = Conversation.during_day_on(@date).lang(:ja).by_priority
+    mail(
+      subject: "Top Conversations on #{@date.strftime('%b %d')}",
+    )
+  end
+
   private
   def _normalize_layout value
     value

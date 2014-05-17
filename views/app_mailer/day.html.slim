@@ -1,0 +1,8 @@
+html
+  head
+    link rel='stylesheet' type='text/css' href='/assets/mail.css'
+  body
+    .container
+      h2 Top Conversations on #{@date.strftime('%b %d')}
+      = render @conversations
+      footer.center provided by Ceeker

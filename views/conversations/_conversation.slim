@@ -1,0 +1,13 @@
+.right
+  a href=conversation.root_permalink
+    = conversation.started_at.getlocal.strftime('%Y/%m/%d %H:%M -')
+    = conversation.ended_at.getlocal.strftime('%H:%M')
+table.table.table-striped.conversations
+  tbody
+    - conversation.tweets.each do |tweet|
+      tr
+        th
+          img width='48' height='48' src=tweet.profile_image_url
+        td
+          .user= tweet.screen_name
+          == auto_link(CGI.escapeHTML(tweet.text))

@@ -1,0 +1,7 @@
+[<%= conversation.started_at.getlocal.strftime('%Y/%m/%d %H:%M') %> - <%= conversation.ended_at.getlocal.strftime('%H:%M') %>]
+  <% conversation.tweets.each do |t| %>
+<%= t.screen_name %>
+  <%= CGI.escapeHTML(t.text) %>
+  <% end %>
+<%= conversation.root_permalink %>
+

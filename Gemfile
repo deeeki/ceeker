@@ -25,7 +25,6 @@ end
 group :web do
   gem 'sinatra'
   gem 'bootstrap-sass', require: false
-  gem 'flat-ui-rails', require: false
 end
 
 group :development do

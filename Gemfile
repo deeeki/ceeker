@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.1.2'
 
+gem 'activesupport', require: 'active_support'
 gem 'mongoid', github: 'mongoid/mongoid'
-gem 'activesupport', require: false
 gem 'dotenv'
 
 group :worker do

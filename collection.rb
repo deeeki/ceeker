@@ -13,7 +13,6 @@ TweetStream.configure do |config|
   config.auth_method = :oauth
 end
 
-require 'active_support/dependencies'
 ActiveSupport::Dependencies.autoload_paths << File.expand_path('../lib', __FILE__)
 
 def save(status)

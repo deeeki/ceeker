@@ -5,7 +5,6 @@ Dotenv.load
 
 Mongoid.load!('config/mongoid.yml', ENV['RACK_ENV'] || :development)
 
-require 'active_support/dependencies'
 ActiveSupport::Dependencies.autoload_paths << File.expand_path('../lib', __FILE__)
 
 Sprockets.append_path(File.expand_path('../assets/stylesheets', __FILE__))

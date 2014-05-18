@@ -5,7 +5,6 @@ Dotenv.load
 
 Mongoid.load!('config/mongoid.yml', ENV['RACK_ENV'] || :development)
 
-require 'active_support/dependencies'
 ActiveSupport::Dependencies.autoload_paths << File.expand_path('../lib', __FILE__)
 
 stats = Mongoid.default_session.command(dbStats: 1)

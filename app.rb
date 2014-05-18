@@ -3,7 +3,6 @@ class App < Sinatra::Base
     require 'cgi'
     Dotenv.load
     Mongoid.load!("#{settings.root}/config/mongoid.yml", :production)
-    require 'active_support/dependencies'
     ActiveSupport::Dependencies.autoload_paths << File.expand_path('../lib', __FILE__)
   end
 

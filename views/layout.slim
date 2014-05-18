@@ -1,0 +1,21 @@
+html
+  head
+    title Ceeker
+    link rel='stylesheet' type='text/css' href='/assets/application.css'
+    meta name='viewport' content='width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'
+  body
+    .navbar.navbar-static-top
+      .container
+        .navbar-header
+          a href='/' class='navbar-brand' Ceeker
+        nav
+          ul.nav.navbar-nav
+            li
+              a href="#{Date.today.strftime('/%Y/%m/%d')}" today
+            li
+              a href="#{Date.yesterday.strftime('/%Y/%m/%d')}" yesterday
+    .container
+      .content
+        == yield
+      hr
+      footer

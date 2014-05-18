@@ -56,8 +56,8 @@ ActionMailer::Base.__send__(:include, Roadie::ActionMailerExtensions)
 
 case ARGV[0]
 when 'hour'
-  to_time = eval(ARGV[1] || 'Time.now') rescue Time.now
-  AppMailer.hourly(to_time).deliver
+  time_to = eval(ARGV[1] || 'Time.now') rescue Time.now
+  AppMailer.hour(time_to).deliver
 else
   date = eval(ARGV[1] || 'Date.yesterday') rescue Date.yesterday
   AppMailer.day(date).deliver

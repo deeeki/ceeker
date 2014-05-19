@@ -33,7 +33,7 @@ rescue => e
 end
 
 @client = TweetStream::Client.new
-@client.follow(ENV['USER_IDS']) do |status|
+@client.follow(User.pluck(:id)) do |status|
   next unless status.text
   next if status.retweeted?
   next if status.text =~ /^RT /

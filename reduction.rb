@@ -1,5 +1,5 @@
 require 'bundler/setup'
-Bundler.require(:default, :process)
+Bundler.require
 
 Dotenv.load
 
@@ -10,7 +10,15 @@ ActiveSupport::Dependencies.autoload_paths << File.expand_path('../lib', __FILE_
 stats = Mongoid.default_session.command(dbStats: 1)
 exit if stats['fileSize'] < 500000000 # MongoLab limit is 520093696
 
-Tweet.lt(id: Tweet.skip(15000).first.id).delete_all
-Conversation.lt(id: Conversation.skip(1500).first.id).delete_all
+Tweet.lt(id: Tweet.skip(50000).first.id).delete_all
+Conversation.lt(id: Conversation.skip(5000).first.id).delete_all
 
 Mongoid.default_session.command(repairDatabase: 1)
+new_stats = Mongoid.default_session.command(dbStats: 1)
+
+puts <<EOH
+Reduction result
+     dataSize: #{stats['dataSize']} -> #{new_stats['dataSize']}
+  storageSize: #{stats['storageSize']} -> #{new_stats['storageSize']}
+     fileSize: #{stats['fileSize']} -> #{new_stats['fileSize']}
+EOH

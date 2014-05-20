@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+require 'bundler/setup'
+Bundler.require(:default, :worker)
+
+Dotenv.load
+
+Mongoid.load!('config/mongoid.yml', ENV['RACK_ENV'] || :development)
+
+ActiveSupport::Dependencies.autoload_paths << File.expand_path('../../lib', __FILE__)
+
+case ARGV[0]
+when 'save'
+  users = UserManager.save ARGV[1..-1]
+  puts 'the following users have been saved.'
+  puts users.map(&:screen_name).join(' ')
+when 'delete'
+  count = UserManager.delete ARGV[1..-1]
+  puts "#{count} users have been deleted."
+else
+  puts <<-HELP
+Usage:
+  bin/user save screen_name1 [screen_name2 ...]
+  bin/user delete screen_name1 [screen_name2 ...]
+  HELP
+end
+
+# vim: filetype=ruby

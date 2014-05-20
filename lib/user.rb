@@ -24,6 +24,7 @@ class User
         connections:       api_user.connections,
         created_at:        api_user.created_at,
       })
+      user
     end
   end
 end

@@ -16,7 +16,7 @@ class AppMailer < ActionMailer::Base
 
   def day date
     @date = date
-    @conversations = Conversation.during_day_on(@date).lang(:ja).by_priority
+    @conversations = Conversation.during_day_on(@date).lang(:ja).by_priority.limit(100)
     mail(
       subject: "Top Conversations on #{@date.strftime('%b %d')}",
     )

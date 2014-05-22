@@ -59,5 +59,6 @@ when 'hour'
   AppMailer.hour(time_to).deliver
 else
   date = eval(ARGV[1] || 'Date.yesterday') rescue Date.yesterday
-  AppMailer.day(date).deliver
+  AppMailer.day(date, lang: :ja).deliver
+  AppMailer.day(date, lang: :en).deliver
 end

@@ -24,8 +24,6 @@ end
 
 group :web do
   gem 'sinatra'
-  gem 'jquery-rails', require: false
-  gem 'bootstrap-sass', require: false
 end
 
 group :development do

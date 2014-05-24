@@ -34,8 +34,6 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.6)
-    bootstrap-sass (3.1.1.1)
-      sass (~> 3.2)
     bson (2.2.3)
     buftok (0.2.0)
     builder (3.2.2)
@@ -83,9 +81,6 @@ GEM
       http_parser.rb (~> 0.6.0)
     http_parser.rb (0.6.0)
     i18n (0.6.9)
-    jquery-rails (3.1.0)
-      railties (>= 3.0, < 5.0)
-      thor (>= 0.14, < 2.0)
     json (1.8.1)
     launchy (2.4.2)
       addressable (~> 2.3)
@@ -126,12 +121,6 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
-    railties (4.1.1)
-      actionpack (= 4.1.1)
-      activesupport (= 4.1.1)
-      rake (>= 0.8.7)
-      thor (>= 0.18.1, < 2.0)
-    rake (10.3.2)
     rb-fsevent (0.9.4)
     rb-inotify (0.9.4)
       ffi (>= 0.5.0)
@@ -194,10 +183,8 @@ PLATFORMS
 DEPENDENCIES
   actionmailer
   activesupport
-  bootstrap-sass
   dotenv
   guard-pow
-  jquery-rails
   letter_opener
   mongoid!
   roadie

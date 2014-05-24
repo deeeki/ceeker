@@ -1,3 +1,4 @@
 .bundle
 .env
 tmp/
+bower_components/

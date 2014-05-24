@@ -5,6 +5,7 @@ class Conversation
   embeds_many :tweets, class_name: 'Conversation::Tweet'
 
   scope :lang, ->(lang){ where(lang: lang) if lang }
+  scope :page, ->(page, per = 50){ skip(((page || 1).to_i - 1) * per).limit(per) }
   scope :during_hour_to, ->(to = Time.now){ where(:ended_at.gte => to - 1.hour, :ended_at.lt => to) }
   scope :during_day_on, ->(on = Date.today){
     from = on.to_time.beginning_of_day

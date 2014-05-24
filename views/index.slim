@@ -4,3 +4,6 @@
   h2 Recent Conversations
 - @conversations.each do |conversation|
   == slim :'conversations/_conversation', locals: { conversation: conversation }
+
+.center
+  a rel='next' href="?page=#{current_page + 1}" more

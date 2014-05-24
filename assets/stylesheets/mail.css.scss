@@ -23,32 +23,48 @@ a {
   max-width: 650px;
 }
 
+// from Bootstrap
+.table {
+  width: 100%;
+  margin-bottom: 20px;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: 8px;
+        line-height: 20px;
+        vertical-align: top;
+        border-top: 1px solid #dddddd;
+      }
+    }
+  }
+}
+.table-striped {
+  > tbody > tr:nth-child(odd) {
+    > td,
+    > th {
+      background-color: #f9f9f9;
+    }
+  }
+}
+
 .conversations {
   th {
     width: 52px;
   }
+
   .user {
     font-weight: bold;
   }
-}
 
-.table {
-  width: 100%;
-  margin-bottom: 20px;
-  th, td {
-    padding: 8px;
-    line-height: 20px;
-    text-align: left;
-    vertical-align: top;
-    border-top: 1px solid #dddddd;
-  }
-}
-
-.table-striped {
-  tbody {
-    > tr:nth-child(odd) {
-      > th, > td {
-        background-color: #f9f9f9;
+  &.table {
+    tbody {
+      > tr:first-child {
+        > th, > td {
+          border-top: 2px solid #1abc9c;
+        }
       }
     }
   }

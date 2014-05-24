@@ -16,5 +16,9 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "jquery": "latest",
+    "bootstrap-sass": "latest"
+  }
 }

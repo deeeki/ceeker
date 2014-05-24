@@ -15,6 +15,18 @@ html
               a href="#{Date.today.strftime('/%Y/%m/%d')}" today
             li
               a href="#{Date.yesterday.strftime('/%Y/%m/%d')}" yesterday
+          ul.nav.navbar-nav.navbar-right
+            li.dropdown
+              a.dropdown-toggle data-toggle='dropdown' href='#'
+                | Lang: #{session[:lang] || 'both'}
+                b.caret
+              ul.dropdown-menu
+                li
+                  a href='?lang=ja' ja
+                li
+                  a href='?lang=en' en
+                li
+                  a href='?lang=' both
     .container
       .content
         == yield

@@ -1,0 +1,20 @@
+{
+  "name": "ceeker",
+  "version": "0.0.0",
+  "homepage": "https://github.com/deeeki/ceeker",
+  "authors": [
+    "deeeki <deeeki@gmail.com>"
+  ],
+  "description": "seek conversations on Twitter",
+  "keywords": [
+    "ceeker"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

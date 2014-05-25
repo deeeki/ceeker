@@ -2,8 +2,9 @@
   h2 Top Conversations on #{@date.strftime('%b %d')}
 - else
   h2 Recent Conversations
-- @conversations.each do |conversation|
-  == slim :'conversations/_conversation', locals: { conversation: conversation }
+.conversations
+  - @conversations.each do |conversation|
+    == slim :'conversations/_conversation', locals: { conversation: conversation }
 
 .center
   a rel='next' href="?page=#{current_page + 1}" more

@@ -4,5 +4,6 @@ html
   body
     .container
       h2 Conversations at #{@time_from.getlocal.strftime('%H on %b %d')}
-      = render @conversations
+      .conversations
+        = render @conversations
       footer.center provided by Ceeker

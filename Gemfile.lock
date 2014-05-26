@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/mongoid/mongoid.git
-  revision: 9be37a9266d8b703e8f549af7bb6977e7a3a8352
+  revision: bb8b503a9daa2129af4e64baca4aa6dcbfb96dac
   specs:
     mongoid (4.0.0.beta1)
       activemodel (>= 4.0.0)
@@ -34,7 +34,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.6)
-    bson (2.2.3)
+    bson (2.2.4)
     buftok (0.2.0)
     builder (3.2.2)
     celluloid (0.15.2)
@@ -67,7 +67,7 @@ GEM
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.3)
-    formatador (0.2.4)
+    formatador (0.2.5)
     guard (2.6.1)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -104,7 +104,7 @@ GEM
       bson (~> 2.2)
       connection_pool (~> 2.0)
       optionable (~> 0.2.0)
-    multi_json (1.10.0)
+    multi_json (1.10.1)
     multipart-post (2.0.0)
     naught (1.0.0)
     nokogiri (1.6.2.1)

@@ -19,7 +19,7 @@ class Conversation
       create({
         tweet_ids: tweets.map(&:id),
         tweets: tweets,
-        tweet_count: tweets.size,
+        tweets_count: tweets.size,
         root_permalink: tweets.first.replied_permalink || tweets.first.permalink,
         lang: tweets.first.lang,
         total_length: length,
@@ -36,7 +36,7 @@ class Conversation
     update_attributes({
       tweet_ids: merged_tweets.map(&:id),
       tweets: merged_tweets,
-      tweet_count: merged_tweets.size,
+      tweets_count: merged_tweets.size,
       total_length: length,
       average_length: (length / merged_tweets.size).to_i,
       ended_at: tweet.created_at,

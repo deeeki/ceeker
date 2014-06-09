@@ -16,9 +16,18 @@ html
             li
               a href="#{Date.yesterday.strftime('/%Y/%m/%d')}" yesterday
           ul.nav.navbar-nav.navbar-right
+            - if @date
+              li.dropdown
+                a.dropdown-toggle data-toggle='dropdown' href='#'
+                  | Sort: #{@sort.humanize}
+                  b.caret
+                ul.dropdown-menu
+                  - %w[average_length total_length tweets_count].each do |sort|
+                    li
+                      a href='?sort=#{sort}' #{sort.humanize}
             li.dropdown
               a.dropdown-toggle data-toggle='dropdown' href='#'
-                | Lang: #{session[:lang] || 'both'}
+                | Lang: #{@lang || 'both'}
                 b.caret
               ul.dropdown-menu
                 li

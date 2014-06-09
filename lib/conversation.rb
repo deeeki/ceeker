@@ -11,7 +11,7 @@ class Conversation
     from = on.to_time.beginning_of_day
     where(:ended_at.gte => from, :ended_at.lte => from.end_of_day)
   }
-  scope :by_priority, ->{ order_by(average_length: :desc) }
+  scope :desc_order_by, ->(attr){ order(attr => :desc) }
 
   class << self
     def create_with_tweets *tweets

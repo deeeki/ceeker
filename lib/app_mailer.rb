@@ -8,7 +8,7 @@ class AppMailer < ActionMailer::Base
 
   def hour time_to, lang: :ja
     @time_from = time_to - 1.hour
-    @conversations = Conversation.during_hour_to(time_to).lang(lang).by_priority
+    @conversations = Conversation.during_hour_to(time_to).lang(lang).desc_order_by(:average_length)
     mail(
       subject: "Conversations at #{@time_from.getlocal.strftime('%H on %b %d')}",
     )
@@ -16,7 +16,7 @@ class AppMailer < ActionMailer::Base
 
   def day date, lang: :ja
     @date = date
-    @conversations = Conversation.during_day_on(@date).lang(lang).by_priority.limit(100)
+    @conversations = Conversation.during_day_on(@date).lang(lang).desc_order_by(:average_length).limit(100)
     mail(
       subject: "Top Conversations on #{@date.strftime('%b %d')}",
     )
